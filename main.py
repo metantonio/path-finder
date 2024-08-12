@@ -24,8 +24,11 @@ def get_graph_density(g):
 dwg = nx.DiGraph()
 
 # Add nodes
-nodes_list = [1, 2, 3, 4]
+nodes_list = [1, 2, 3, 4] # needs to be integers
 dwg.add_nodes_from(nodes_list)
+
+# Add labels to nodes (optional)
+node_labels = ["A", "B", "C", "D"]
 
 # Add weighted edges: format (node 1, node 2, cost)
 edges_list = [(1, 2, 1), (1, 3, 1), (1, 4, 2), (3, 4, 1), (2, 3, 2)]
@@ -142,7 +145,10 @@ pos = nx.get_node_attributes(dwg, 'pos')
 # Nodes labels
 labels = {}
 for n in dwg.nodes():
-    labels[n] = n
+    if node_labels:
+        labels[n] = node_labels[n-1]
+    else:
+        labels[n] = n
 
 # Edges labels
 weights = {}
