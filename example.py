@@ -65,8 +65,8 @@ edges_list = [(1, 4, 1),
 dwg.add_weighted_edges_from(edges_list)
 
 # Selection of nodes, source and target
-source = 4
-target = 1
+source = 1
+target = 11
 
 # Calculate the graph density
 density = get_graph_density(dwg)
@@ -210,7 +210,7 @@ plt.rcParams["figure.figsize"] = [10, 10]
 nx.draw_networkx_nodes(dwg, pos, nodelist=dwg.nodes(), node_color=node_colors, node_size=500, alpha=1)
 nx.draw_networkx_edges(dwg, pos, edgelist=dwg.edges(), width=1, alpha=0.8, edge_color='black')
 nx.draw_networkx_edges(dwg, pos, edgelist=sp_edges,    width=3, alpha=0.9, edge_color='green')
-nx.draw_networkx_labels(dwg, pos, labels, font_size=12, font_color='w')
+nx.draw_networkx_labels(dwg, pos, labels, font_size=12, font_color='black')
 nx.draw_networkx_edge_labels(dwg, pos, edge_labels=weights, font_color='black')
 plt.title('Shortest Path of a DWG', fontsize=14)
 plt.axis('off')
