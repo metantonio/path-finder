@@ -31,13 +31,15 @@ dwg.add_nodes_from(nodes_list)
 edges_list = [(1, 2, 1), (1, 3, 1), (1, 4, 2), (3, 4, 1), (2, 3, 2)]
 dwg.add_weighted_edges_from(edges_list)
 
+# Selection of nodes, source and target
+source = 1
+target = 2
+
 # Calculate the graph density
 density = get_graph_density(dwg)
 print('Graph density:', density)
 
 # Using Dijkstra algorithm
-source = 1
-target = 2
 sp = nx.dijkstra_path(dwg, source, target)
 print(sp)
 
