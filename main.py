@@ -27,7 +27,7 @@ dwg = nx.DiGraph()
 nodes_list = [1, 2, 3, 4]
 dwg.add_nodes_from(nodes_list)
 
-# Add weighted edges: format (x, y, cost)
+# Add weighted edges: format (node 1, node 2, cost)
 edges_list = [(1, 2, 1), (1, 3, 1), (1, 4, 2), (3, 4, 1), (2, 3, 2)]
 dwg.add_weighted_edges_from(edges_list)
 
