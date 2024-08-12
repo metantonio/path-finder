@@ -24,12 +24,11 @@ def get_graph_density(g):
 dwg = nx.DiGraph()
 
 # Add nodes
-nodes_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+nodes_list = [1, 2, 3, 4]
 dwg.add_nodes_from(nodes_list)
 
-# Add weighted edges
-edges_list = [(1, 2, 4), (1, 3, 5), (1, 4, 1), (2, 5, 10), (2, 7, 9), (3, 5, 6), (3, 6, 5), 
-              (4, 6, 11), (4, 8, 2), (5, 9, 4), (6, 9, 3), (7, 9, 5), (8, 9, 3)]
+# Add weighted edges: format (x, y, cost)
+edges_list = [(1, 2, 1), (1, 3, 1), (1, 4, 2), (3, 4, 1), (2, 3, 2)]
 dwg.add_weighted_edges_from(edges_list)
 
 # Calculate the graph density
@@ -38,7 +37,7 @@ print('Graph density:', density)
 
 # Using Dijkstra algorithm
 source = 1
-target = 9
+target = 2
 sp = nx.dijkstra_path(dwg, source, target)
 print(sp)
 
@@ -130,14 +129,10 @@ print(sp_sol)
 
 # We then set the coordinates of each node
 dwg.nodes[1]['pos'] = (0, 0)
-dwg.nodes[2]['pos'] = (3, 2.5)
-dwg.nodes[3]['pos'] = (3, 0)
-dwg.nodes[4]['pos'] = (3, -2.5)
-dwg.nodes[5]['pos'] = (6, 3)
-dwg.nodes[6]['pos'] = (6, 1)
-dwg.nodes[7]['pos'] = (6,-1)
-dwg.nodes[8]['pos'] = (6,-3)
-dwg.nodes[9]['pos'] = (9, 0)
+dwg.nodes[2]['pos'] = (1, 0)
+dwg.nodes[3]['pos'] = (0, 1)
+dwg.nodes[4]['pos'] = (1, 1)
+
 
 # The positions of each node are stored in a dictionary
 pos = nx.get_node_attributes(dwg, 'pos')
