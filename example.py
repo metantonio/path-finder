@@ -29,10 +29,39 @@ nodes_list = [i for i in range(1, 16)] # it will create nodes from 1 to 15
 dwg.add_nodes_from(nodes_list)
 
 # Add labels to nodes (optional)
-node_labels = ["A", "B", "C", "D"]
+node_labels = ["Clive's Office", 
+               "Meeting Rom", 
+               "Server", 
+               "Nha's Office",
+               "Hallway",
+               "Printing room",
+               "printing",
+               "Arun's Office",
+               "QLX Lab",
+               "Hallway",
+               "Exit",
+               "Hallway",
+               "Kitchen",
+               "Ankit's office",
+               "Ashton's office"
+               ]
 
 # Add weighted edges: format (node 1, node 2, cost)
-edges_list = [(1, 2, 1), (1, 3, 1), (1, 4, 2), (3, 4, 1), (2, 3, 2)]
+edges_list = [(1, 4, 1), 
+              (4, 5, 3),
+              (5, 2, 1),
+              (5, 6, 3),
+              (6, 3, 1),
+              (6, 7, 1),
+              (4, 8, 1),
+              (5, 10, 4),
+              (10, 9, 3),
+              (10, 11, 3),
+              (10, 12, 2),
+              (12, 13, 3),
+              (12, 14, 1),
+              (12, 15, 1)
+              ]
 dwg.add_weighted_edges_from(edges_list)
 
 # Selection of nodes, source and target
@@ -134,11 +163,21 @@ print(sp_sol)
 
 
 # We then set the coordinates of each node (x, y)
-dwg.nodes[1]['pos'] = (0, 0)
-dwg.nodes[2]['pos'] = (1, 0)
-dwg.nodes[3]['pos'] = (0, 1)
-dwg.nodes[4]['pos'] = (1, 1)
-
+dwg.nodes[1]['pos'] = (0, 8)
+dwg.nodes[2]['pos'] = (1, 8)
+dwg.nodes[3]['pos'] = (4, 8)
+dwg.nodes[4]['pos'] = (0, 7)
+dwg.nodes[5]['pos'] = (1, 7)
+dwg.nodes[6]['pos'] = (4, 7)
+dwg.nodes[7]['pos'] = (4, 6)
+dwg.nodes[8]['pos'] = (0, 6)
+dwg.nodes[9]['pos'] = (0, 3)
+dwg.nodes[10]['pos'] = (1, 3)
+dwg.nodes[11]['pos'] = (4, 3)
+dwg.nodes[12]['pos'] = (1, 1)
+dwg.nodes[13]['pos'] = (4, 1)
+dwg.nodes[14]['pos'] = (0, 1)
+dwg.nodes[15]['pos'] = (1, 0)
 
 # The positions of each node are stored in a dictionary
 pos = nx.get_node_attributes(dwg, 'pos')
