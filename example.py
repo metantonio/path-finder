@@ -46,7 +46,7 @@ node_labels = ["Clive's Office",
                "Ashton's office"
                ]
 
-# Add weighted edges: format (node 1, node 2, cost)
+# Add weighted edges: format (node 1, node 2, cost) # Cost can be distance, time, energy, in this case will be distance between nodes
 edges_list = [(1, 4, 1), 
               (4, 5, 3),
               (5, 2, 1),
