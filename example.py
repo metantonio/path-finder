@@ -185,9 +185,12 @@ pos = nx.get_node_attributes(dwg, 'pos')
 # Nodes labels
 labels = {}
 for n in dwg.nodes():
-    if node_labels:
-        labels[n] = node_labels[n-1]
-    else:
+    try:
+        if node_labels is not None:
+            labels[n] = node_labels[n-1]
+        else:
+            labels[n] = n
+    except NameError:
         labels[n] = n
 
 # Edges labels
