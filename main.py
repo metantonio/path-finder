@@ -32,16 +32,16 @@ edges_list = [(1, 2, 1), (1, 3, 1), (1, 4, 2), (3, 4, 1), (2, 3, 2)]
 dwg.add_weighted_edges_from(edges_list)
 
 # Selection of nodes, source and target
-source = 1
-target = 2
+source = 4
+target = 1
 
 # Calculate the graph density
 density = get_graph_density(dwg)
 print('Graph density:', density)
 
-# Using Dijkstra algorithm
-sp = nx.dijkstra_path(dwg, source, target)
-print(sp)
+# Using Dijkstra algorithm directly with the library
+""" sp = nx.dijkstra_path(dwg, source, target)
+print(sp) """
 
 # From scratch
 # Returns the node with a minimum own distance
@@ -129,7 +129,7 @@ sp_sol = get_shortes_path(dwg, source, target, True)
 print(sp_sol)
 
 
-# We then set the coordinates of each node
+# We then set the coordinates of each node (x, y)
 dwg.nodes[1]['pos'] = (0, 0)
 dwg.nodes[2]['pos'] = (1, 0)
 dwg.nodes[3]['pos'] = (0, 1)
